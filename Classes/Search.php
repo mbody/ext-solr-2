@@ -126,13 +126,8 @@ class Search implements SingletonInterface
     public function search(Query $query, $offset = 0, $limit = 10)
     {
         $query = $this->modifyQuery($query);
-
-
-        if()
-
-
         $this->query = $query;
-
+        
         if (empty($limit)) {
             $limit = $query->getResultsPerPage();
         }
