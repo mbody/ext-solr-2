@@ -125,8 +125,23 @@ class Search implements SingletonInterface
      */
     public function search(Query $query, $offset = 0, $limit = 10)
     {
+        // DEBUG : handle exact sarch
+        $keywords = $query->getKeywords();
+        if(!empty($keywords)){
+            $keywords = str_replace("\\", "", $keywords);
+            $query->setKeywords($keywords);
+        }
+
         $query = $this->modifyQuery($query);
         $this->query = $query;
+
+        // DEBUG : add automatically * at the end of each terms
+//        if(!empty($query->getQueryString()) && !$this->endsWith($query->getKeywords(), '*')){
+//            $query->setKeywords($query->getKeywords() . '*');
+//        }
+
+
+
 
         if (empty($limit)) {
             $limit = $query->getResultsPerPage();
@@ -168,6 +183,11 @@ class Search implements SingletonInterface
         $this->hasSearched = true;
 
         return $this->response;
+    }
+
+    protected function endsWith($haystack, $needle) {
+        // search forward starting from end minus needle length characters
+        return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
     }
 
     /**

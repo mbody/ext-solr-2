@@ -288,7 +288,8 @@ abstract class PluginBase extends AbstractPlugin
      */
     protected function initializeQuery()
     {
-        $this->rawUserQuery = GeneralUtility::_GET('q');
+        // bug fix for exact search
+        $this->rawUserQuery = stripslashes(GeneralUtility::_GET('q'));
     }
 
     /**

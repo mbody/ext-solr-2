@@ -338,7 +338,11 @@ class Query
         // which mentions: + - && || ! ( ) { } [ ] ^ " ~ * ? : \ /
         // of which we escape: ( ) { } [ ] ^ " ~ : \ /
         // and explicitly don't escape: + - && || ! * ?
-        $pattern = '/(\\(|\\)|\\{|\\}|\\[|\\]|\\^|"|~|\:|\\\\|\\/)/';
+        //$pattern = '/(\\(|\\)|\\{|\\}|\\[|\\]|\\^|"|~|\:|\\\\|\\/)/';
+
+        // NE PAS ESCAPE ^ et ~ pour le boost d'un champ, l'opérateur near, et la recherche floue
+        $pattern = '/(\\(|\\)|\\{|\\}|\\[|\\]|"|\:|\\\\|\\/)/';
+
         $replace = '\\\$1';
 
         return preg_replace($pattern, $replace, $value);
