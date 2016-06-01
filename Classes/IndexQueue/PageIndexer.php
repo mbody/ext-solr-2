@@ -361,6 +361,7 @@ class PageIndexer extends Indexer
         $request->setParameter('accessRootline', (string)$accessRootline);
 
         $indexRequestUrl = $this->getDataUrl($item, $language);
+        // indexation du doc dans solr
         $response = $request->send($indexRequestUrl);
         $indexActionResult = $response->getActionResult('indexPage');
 

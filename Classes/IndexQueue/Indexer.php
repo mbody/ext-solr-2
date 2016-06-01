@@ -75,7 +75,7 @@ class Indexer extends AbstractIndexer
      *
      * @var boolean
      */
-    protected $loggingEnabled = false;
+    protected $loggingEnabled = true;
 
     /**
      * Cache of the sys_language_overlay information

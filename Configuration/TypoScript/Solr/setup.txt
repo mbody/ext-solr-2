@@ -101,6 +101,7 @@ plugin.tx_solr {
 				fields {
 					sortSubTitle_stringS = subtitle
 					mainThemaTags_stringS = mainThemaTags
+					univers_stringS = tx_mmmieux_universe
 					category_stringM = SOLR_RELATION
 					category_stringM {
 						localField = categories
@@ -134,7 +135,8 @@ plugin.tx_solr {
 			allowedSites = __solr_current_site
 
 			// qf parameter http://wiki.apache.org/solr/DisMaxQParserPlugin#qf_.28Query_Fields.29
-			queryFields = content^40.0, title^5.0, keywords^2.0, tagsH1^5.0, tagsH2H3^3.0, tagsH4H5H6^2.0, tagsInline^1.0
+			//queryFields = content^40.0, title^5.0, keywords^2.0, tagsH1^5.0, tagsH2H3^3.0, tagsH4H5H6^2.0, tagsInline^1.0
+			queryFields = content^40.0, title^5.0, abstract^4.0, tagsH1^3.9, tagsH2H3^3.9, tagsH4H5H6^3.9, tagsInline^3.9, description^3.0
 
 			// fl parameter http://wiki.apache.org/solr/CommonQueryParameters#fl
 			returnFields = *, score
@@ -321,6 +323,10 @@ plugin.tx_solr {
 					label = Content Type
 					field = type
 				}
+				univers_stringS {
+					label = Univers
+					field = univers_stringS
+				}
 				category_stringM {
 					label = Categories
 					field = category_stringM
@@ -410,12 +416,12 @@ plugin.tx_solr {
 		exceptions = 1
 
 		indexing {
-			indexQueueInitialization = 0
+			indexQueueInitialization = 1
 			missingTypo3SearchMarkers = 1
-			pageIndexed = 0
+			pageIndexed = 1
 
 			queue {
-				pages = 0
+				pages = 1
 			}
 		}
 
