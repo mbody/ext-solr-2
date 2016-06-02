@@ -86,10 +86,14 @@ class ResultsCommand implements PluginCommand
         $rawQueryTerms = $query->getKeywordsRaw();
         $queryTerms = $query->getKeywordsCleaned();
 
-        $searchedFor = strtr(
-            $this->parentPlugin->pi_getLL('results_searched_for'),
-            array('@searchWord' => '<span class="tx-solr-search-word">' . $queryTerms . '</span>')
-        );
+        if($queryTerms!=""){
+            $searchedFor = strtr(
+                $this->parentPlugin->pi_getLL('results_searched_for'),
+                array('@searchWord' => '<span class="tx-solr-search-word">' . $queryTerms . '</span>')
+            );
+        }else{
+            $searchedFor = "";
+        }
 
         $foundResultsInfo = strtr(
             $this->parentPlugin->pi_getLL('results_found'),

@@ -11,6 +11,7 @@
 
 <div id="tx-solr-search">
 
+	***** recherche avancée ****
 
 	<!-- ###SOLR_SEARCH_FORM### begin -->
 	<div>
@@ -20,6 +21,39 @@
 
 			<input type="hidden" name="id" value="###FORM.ACTION_ID###" />
 			<input type="hidden" name="###FORM.ACTION_LANGUAGE_PARAMETER###" value="###FORM.ACTION_LANGUAGE###" />
+			<input type="hidden" name="tx_solr[resultsPerPage]" value="10"/>
+			<div class="mar-bottom-15">
+
+
+
+				<!-- ###SOLR_SEARCH_FACETING### begin -->
+					<!-- ###AVAILABLE_FACETS### begin -->
+							<!-- ###SINGLE_FACET### begin -->
+							###IF:###FACET.name###|==|univers_stringS###
+							<label>Rubriques :</label>
+									<!-- ###SINGLE_FACET_OPTION### begin -->
+									<!-- ###LOOP:FACET_LINKS### begin -->
+									<!-- ###LOOP_CONTENT### -->
+									<div class="facet-option">
+										<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="facet-###FACET_LINK.facetName###-option-###FACET_LINK.value###" value="###FACET_LINK.facetName###:###FACET_LINK.value###"
+											   ###IF:###FACET_LINK.selected###|==|1###
+											   checked="checked"
+											   ###IF:###FACET_LINK.selected###|==|1###
+											   onchange="window.location='###FACET_LINK.url###'"
+												/>
+										<label for="facet-###FACET_LINK.facetName###-option-###FACET_LINK.value###">###FACET_LINK.LINK###  <span class="facet-result-count">(###FACET_LINK.COUNT###)</span></label>
+									</div>
+									<!-- ###LOOP_CONTENT### -->
+									<!-- ###LOOP:FACET_LINKS### end -->
+									<!-- ###SINGLE_FACET_OPTION### end -->
+									###FACET.showAllLink###
+							###IF:###FACET.name###|==|univers_stringS###
+							<!-- ###SINGLE_FACET### end -->
+					<!-- ###AVAILABLE_FACETS### end -->
+				<!-- ###SOLR_SEARCH_FACETING### end -->
+
+
+			</div>
 			<div class="mar-bottom-15">
 				<div class="form-group">
 					<input type="text" class="form-control input-lg tx-solr-q ui-autocomplete-input" placeholder="Mots-clés" title="Indiquez les termes à rechercher" name="q" value="###FORM.Q###" />
@@ -171,64 +205,6 @@
 
 	<!-- ###SOLR_SEARCH_SORTING### end -->
 
-
-	<!-- ###SOLR_SEARCH_FACETING### begin -->
-	<div id="tx-solr-faceting">
-		<!-- ###USED_FACETS### begin -->
-		<div id="tx-solr-facets-in-use" class="secondaryContentSection">
-			<div class="csc-header">
-				<h3 class="csc-firstHeader">###LLL:faceting_resultsNarrowedBy###</h3>
-			</div>
-			<ul>
-				<!-- ###LOOP:FACETS_IN_USE### begin -->
-				<!-- ###LOOP_CONTENT### -->
-				<li>
-					- <a href="###REMOVE_FACET.url###">###REMOVE_FACET.text###</a>
-				</li>
-				<!-- ###LOOP_CONTENT### -->
-				<!-- ###LOOP:FACETS_IN_USE### end -->
-
-				<li class="facets-remove-all">
-					<a href="###REMOVE_ALL_FACETS.url###">###REMOVE_ALL_FACETS.text###</a>
-				</li>
-			</ul>
-		</div>
-		<!-- ###USED_FACETS### end -->
-
-		<!-- ###AVAILABLE_FACETS### begin -->
-		<div id="tx-solr-facets-available" class="secondaryContentSection">
-			<div class="csc-header">
-				<h3 class="csc-firstHeader">###LLL:faceting_narrowSearch###</h3>
-			</div>
-			<ul class="facets">
-				<!-- ###SINGLE_FACET### begin -->
-				<li class="facet facet-###FACET.name### facet-type-###FACET.type###">
-					<h5 class="facet-label csc-header">###FACET.label###</h5>
-					<ul class="facet-option-list">
-						<!-- ###SINGLE_FACET_OPTION### begin -->
-						<!-- ###LOOP:FACET_LINKS### begin -->
-						<!-- ###LOOP_CONTENT### -->
-						<div class="facet-option">
-							<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="facet-###FACET_LINK.facetName###-option-###FACET_LINK.value###" value="###FACET_LINK.facetName###:###FACET_LINK.value###"
-												   ###IF:###FACET_LINK.selected###|==|1###
-												   checked="checked"
-												   ###IF:###FACET_LINK.selected###|==|1###
-												   onchange="window.location='###FACET_LINK.url###'"
-													/>
-							<label for="facet-###FACET_LINK.facetName###-option-###FACET_LINK.value###">###FACET_LINK.LINK###  <span class="facet-result-count">(###FACET_LINK.COUNT###)</span></label>
-						</div>
-						<!-- ###LOOP_CONTENT### -->
-						<!-- ###LOOP:FACET_LINKS### end -->
-						<!-- ###SINGLE_FACET_OPTION### end -->
-						###FACET.showAllLink###
-					</ul>
-				</li>
-				<!-- ###SINGLE_FACET### end -->
-			</ul>
-		</div>
-		<!-- ###AVAILABLE_FACETS### end -->
-	</div>
-	<!-- ###SOLR_SEARCH_FACETING### end -->
 
 
 	<!-- ###SOLR_SEARCH_LASTSEARCHES### end -->

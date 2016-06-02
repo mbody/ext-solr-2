@@ -26,12 +26,6 @@
 			<label index="lastSearches">Last searches</label>
 			<label index="frequentSearches">Frequent searches</label>
 			<label index="relevance">Relevance</label>
-			<label index="0">Autre</label>
-			<label index="rubric1">Le Mag</label>
-			<label index="rubric2">Mieux dans mon corps</label>
-			<label index="rubric3">Mieux dans ma tête</label>
-			<label index="rubric4">Mieux dans ma vie</label>
-			<label index="rubric5">Ma santé pratique</label>
 			<label index="sponsored">Sponsored</label>
 			<label index="file_mimetype">File type</label>
 			<label index="file_referenced">Referenced at</label>
@@ -122,12 +116,6 @@
 			<label index="lastSearches">Dernières recherches</label>
 			<label index="frequentSearches">Recherches fréquentes</label>
 			<label index="relevance">Pertinence</label>
-			<label index="0">Autre</label>
-			<label index="rubric1">Le Mag</label>
-			<label index="rubric2">Mieux dans mon corps</label>
-			<label index="rubric3">Mieux dans ma tête</label>
-			<label index="rubric4">Mieux dans ma vie</label>
-			<label index="rubric5">Ma santé pratique</label>
 			<label index="sponsored">Sponsorisé</label>
 			<label index="file_mimetype">Type de fichier</label>
 			<label index="file_referenced">Référencé par</label>

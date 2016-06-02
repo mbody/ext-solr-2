@@ -125,23 +125,8 @@ class Search implements SingletonInterface
      */
     public function search(Query $query, $offset = 0, $limit = 10)
     {
-        // DEBUG : handle exact sarch
-        $keywords = $query->getKeywords();
-        if(!empty($keywords)){
-            $keywords = str_replace("\\", "", $keywords);
-            $query->setKeywords($keywords);
-        }
-
         $query = $this->modifyQuery($query);
         $this->query = $query;
-
-        // DEBUG : add automatically * at the end of each terms
-//        if(!empty($query->getQueryString()) && !$this->endsWith($query->getKeywords(), '*')){
-//            $query->setKeywords($query->getKeywords() . '*');
-//        }
-
-
-
 
         if (empty($limit)) {
             $limit = $query->getResultsPerPage();

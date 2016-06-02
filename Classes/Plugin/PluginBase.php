@@ -289,7 +289,11 @@ abstract class PluginBase extends AbstractPlugin
     protected function initializeQuery()
     {
         // bug fix for exact search
-        $this->rawUserQuery = stripslashes(GeneralUtility::_GET('q'));
+        $q = GeneralUtility::_GET('q');
+        if(isset($q)){
+            $q = stripslashes($q);
+        }
+        $this->rawUserQuery = $q;
     }
 
     /**
@@ -616,4 +620,16 @@ abstract class PluginBase extends AbstractPlugin
         $query = $this->getRawUserQuery();
         return $query === null;
     }
+
+    /**
+     * This method returns true when no filter is present at all.
+     *
+     * @return boolean
+     */
+    public function getFilterQueryIsNull()
+    {
+        $resultParameters = GeneralUtility::_GET('tx_solr');
+        return !is_array($resultParameters['filter']);
+    }
+
 }

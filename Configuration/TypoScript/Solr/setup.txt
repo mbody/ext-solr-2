@@ -130,7 +130,7 @@ plugin.tx_solr {
 		keepExistingParametersForNewSearches = 0
 
 		query {
-			allowEmptyQuery = 0
+			allowEmptyQuery = 1
 
 			allowedSites = __solr_current_site
 
@@ -296,11 +296,13 @@ plugin.tx_solr {
 				created {
 					field = created
 					label = Creation Date
+					defaultOrder = desc
 				}
 
 				changed {
 					field = changed
 					label = Last Update Date
+					defaultOrder = desc
 				}
 			}
 		}
@@ -320,12 +322,45 @@ plugin.tx_solr {
 
 			facets {
 				type {
-					label = Content Type
+					label = Type de contenu
 					field = type
+					renderingInstruction = CASE
+					renderingInstruction {
+                                             key.field = optionValue
+
+                                            pages = TEXT
+                                            pages.value = Pages
+                    }
 				}
 				univers_stringS {
 					label = Univers
 					field = univers_stringS
+					operator = OR
+					keepAllOptionsOnSelection = 1
+					selectingSelectedFacetOptionRemovesFilter = 1
+
+					renderingInstruction = CASE
+					renderingInstruction {
+                                            key.field = optionValue
+
+                                            0 = TEXT
+                                            0.value = Autre
+
+                                            rubric1 = TEXT
+                                            rubric1.value = Le Mag
+
+                                            rubric2 = TEXT
+                                            rubric2.value = Mieux dans mon corps
+
+                                            rubric3 = TEXT
+                                            rubric3.value = Mieux dans ma tête
+
+                                            rubric4 = TEXT
+                                            rubric4.value = Mieux dans ma vie
+
+                                            rubric5 = TEXT
+                                            rubric5.value = Ma santé pratique
+                    }
 				}
 				category_stringM {
 					label = Categories
