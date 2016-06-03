@@ -85,12 +85,16 @@ class NoResultsCommand implements PluginCommand
         $spellChecker = GeneralUtility::makeInstance('ApacheSolrForTypo3\\Solr\\SpellChecker');
         $searchWord = $this->parentPlugin->getCleanUserQuery();
 
-        $nothingFound = strtr(
-            $this->parentPlugin->pi_getLL('no_results_nothing_found'),
-            array(
-                '@searchWord' => $searchWord
-            )
-        );
+        if($searchWord != "") {
+            $nothingFound = strtr(
+                $this->parentPlugin->pi_getLL('no_results_nothing_found'),
+                array(
+                    '@searchWord' => $searchWord
+                )
+            );
+        } else {
+            $nothingFound = "";
+        }
 
         $showingResultsSuggestion = strtr(
             $this->parentPlugin->pi_getLL('no_results_showing_results_suggestion'),
@@ -100,18 +104,16 @@ class NoResultsCommand implements PluginCommand
         );
 
         # TODO add link to execute query
+
         $searchForOriginal = strtr(
             $this->parentPlugin->pi_getLL('no_results_search_for_original'),
             array(
                 '@searchWord' => $searchWord
             )
         );
-
         $searchedFor = strtr(
             $this->parentPlugin->pi_getLL('results_searched_for'),
-            array(
-                '@searchWord' => $searchWord
-            )
+            array('@searchWord' => '<span class="tx-solr-search-word">' . $searchWord . '</span>')
         );
 
         $markers = array(

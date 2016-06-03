@@ -21,44 +21,92 @@
 
 			<input type="hidden" name="id" value="###FORM.ACTION_ID###" />
 			<input type="hidden" name="###FORM.ACTION_LANGUAGE_PARAMETER###" value="###FORM.ACTION_LANGUAGE###" />
-			<input type="hidden" name="tx_solr[resultsPerPage]" value="10"/>
-			<div class="mar-bottom-15">
+
+			<div>
+				<h2 class="title-level-3 pad-bottom-25">Recherche avancée</h2>
+				<p>Choisissez un ou plusieurs critères pour filtrer les contenus du site :</p>
+					<div>
+						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@extension]" value="Mmmieux">
+						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@vendor]" value="Efficience">
+						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@controller]" value="ProfiledSearch">
+						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@action]" value="form">
+						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][arguments]" value="YTowOnt9054d8480693d2038bad37c7a558ef8a16d4ff44b">
+						<input type="hidden" name="tx_mmmieux_profiledsearch[__trustedProperties]" value="a:5:{s:8:&quot;audience&quot;;i:1;s:8:&quot;ageRange&quot;;i:1;s:9:&quot;mainThema&quot;;i:1;s:5:&quot;place&quot;;i:1;s:10:&quot;searchAuto&quot;;i:1;}3aacf62168ae7bc6323dcb5c10f60989922bf488">
+					</div>
+
+				<div class="form-group" style="display:block">
+					<label id="tx-mmmieux-profiledsearch-label-univers">Rubrique</label>
+					<div>
+						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric1"
+							   value="univers_stringS:rubric1"
+								/>
+						<label for="option-rubric1">Le Mag</label>
+					</div>
+					<div>
+						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric2"
+							   value="univers_stringS:rubric2"
+								/>
+						<label for="option-rubric2">Mieux dans mon corps</label>
+					</div>
+					<div>
+						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric3"
+							   value="univers_stringS:rubric3"
+								/>
+						<label for="option-rubric3">Mieux dans ma tête</label>
+					</div>
+					<div>
+						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric4"
+							   value="univers_stringS:rubric4"
+								/>
+						<label for="option-rubric4">Mieux dans ma vie</label>
+					</div>
+					<div>
+						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric5"
+							   value="univers_stringS:rubric5"
+								/>
+						<label for="option-rubric5">Ma santé pratique</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+						<label id="tx-mmmieux-profiledsearch-label-audience">Sexe</label>
+						<div class="form-control-container">
 
 
 
-				<!-- ###SOLR_SEARCH_FACETING### begin -->
-					<!-- ###AVAILABLE_FACETS### begin -->
-							<!-- ###SINGLE_FACET### begin -->
-							###IF:###FACET.name###|==|univers_stringS###
-							<label>Rubriques :</label>
-									<!-- ###SINGLE_FACET_OPTION### begin -->
-									<!-- ###LOOP:FACET_LINKS### begin -->
-									<!-- ###LOOP_CONTENT### -->
-									<div class="facet-option">
-										<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="facet-###FACET_LINK.facetName###-option-###FACET_LINK.value###" value="###FACET_LINK.facetName###:###FACET_LINK.value###"
-											   ###IF:###FACET_LINK.selected###|==|1###
-											   checked="checked"
-											   ###IF:###FACET_LINK.selected###|==|1###
-											   onchange="window.location='###FACET_LINK.url###'"
-												/>
-										<label for="facet-###FACET_LINK.facetName###-option-###FACET_LINK.value###">###FACET_LINK.LINK###  <span class="facet-result-count">(###FACET_LINK.COUNT###)</span></label>
-									</div>
-									<!-- ###LOOP_CONTENT### -->
-									<!-- ###LOOP:FACET_LINKS### end -->
-									<!-- ###SINGLE_FACET_OPTION### end -->
-									###FACET.showAllLink###
-							###IF:###FACET.name###|==|univers_stringS###
-							<!-- ###SINGLE_FACET### end -->
-					<!-- ###AVAILABLE_FACETS### end -->
-				<!-- ###SOLR_SEARCH_FACETING### end -->
+						<select id="select_audience_stringM" name="tx_solr[filter][]" tabindex="-1" title=""><option value="0">Choisissez</option>
+							<option value="audience_stringM:Femme">Femme</option>
+							<option value="audience_stringM:Homme">Homme</option>
+						</select>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label id="tx-mmmieux-profiledsearch-label-agerange">Tranche d'âge</label>
+						<div class="form-control-container">
 
 
+
+						<select id="select_agerange_stringM" name="tx_solr[filter][]" >
+							<option value="0">Choisissez</option>
+							<option id="agerange_stringM:Enfant" value="agerange_stringM:Enfant">Enfant</option>
+							<option id="agerange_stringM:Adolescent" value="agerange_stringM:Adolescent">Adolescent</option>
+							<option id="agerange_stringM:Senior" value="agerange_stringM:Senior">Senior</option>
+							<option id="agerange_stringM:Jeune" value="agerange_stringM:Jeune">Jeune</option>
+							<option id="agerange_stringM:Adulte" value="agerange_stringM:Adulte">Adulte</option>
+							<option id="agerange_stringM:Bébé" value="agerange_stringM:Bébé">Bébé</option>
+						</select>
+
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="mar-bottom-15">
 				<div class="form-group">
 					<input type="text" class="form-control input-lg tx-solr-q ui-autocomplete-input" placeholder="Mots-clés" title="Indiquez les termes à rechercher" name="q" value="###FORM.Q###" />
 				</div>
 				<div class="form-group">
+					<button type="reset" class="btn btn-secondary">Réinitialiser</button>
 					<button type="submit" name="tx_indexedsearch[submit_button]" id="tx-indexedsearch-searchbox-button-submit" class="btn btn-default">###LLL:submit###</button>
 				</div>
 			</div>
@@ -70,11 +118,19 @@
 	<!-- ###SOLR_SEARCH_FORM### end -->
 
 
+	<!-- ###SOLR_SEARCH_FACETING### begin -->
+	<script>
+		<!-- ###USED_FACETS### begin -->
+				<!-- ###LOOP:FACETS_IN_USE### begin -->
 
-	<!-- ###SOLR_SEARCH_FORM_ADVANCED### begin -->
-
-	<!-- ###SOLR_SEARCH_FORM_ADVANCED### end -->
-
+				<!-- ###LOOP_CONTENT### -->
+				$('#option-###REMOVE_FACET.value###').attr('checked', 'checked');
+				$('#select_###REMOVE_FACET.facet_name###').val('###REMOVE_FACET.facet_name###:###REMOVE_FACET.value###');
+				<!-- ###LOOP_CONTENT### -->
+				<!-- ###LOOP:FACETS_IN_USE### end -->
+		<!-- ###USED_FACETS### end -->
+	</script>
+	<!-- ###SOLR_SEARCH_FACETING### end -->
 
 
 	<!-- ###SOLR_SEARCH_ERRORS### begin -->

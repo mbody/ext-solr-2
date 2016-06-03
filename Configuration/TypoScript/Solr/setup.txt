@@ -102,10 +102,24 @@ plugin.tx_solr {
 					sortSubTitle_stringS = subtitle
 					mainThemaTags_stringS = mainThemaTags
 					univers_stringS = tx_mmmieux_universe
-					category_stringM = SOLR_RELATION
-					category_stringM {
-						localField = categories
-						foreignLabelField = uid
+					audience_stringM = SOLR_RELATION
+					audience_stringM {
+						localField = tx_mmmieux_audience_tags
+						multiValue = 1
+					}
+					audience_stringM = SOLR_RELATION
+					audience_stringM {
+						localField = tx_mmmieux_audience_tags
+						multiValue = 1
+					}
+					agerange_stringM = SOLR_RELATION
+					agerange_stringM {
+						localField = tx_mmmieux_agerange_tags
+						multiValue = 1
+					}
+					place_stringM = SOLR_RELATION
+					place_stringM {
+						localField = tx_mmmieux_place_tags
 						multiValue = 1
 					}
 				}
@@ -362,44 +376,21 @@ plugin.tx_solr {
                                             rubric5.value = Ma santé pratique
                     }
 				}
-				category_stringM {
-					label = Categories
-					field = category_stringM
-					type = hierarchy
-					hierarchy = HMENU
-					hierarchy {
-						1 = TMENU
-						1 {
-							NO = 1
-							NO {
-								wrapItemAndSub = <li>|</li>
-								stdWrap.cObject = RECORDS
-								stdWrap.cObject {
-									source.field = facetKey
-									tables = sys_category
-									dontCheckPid = 1
-									conf.sys_category = TEXT
-									conf.sys_category.field = title
-									conf.sys_category.htmlSpecialChars = 1
-								}
-								stdWrap.dataWrap = |&nbsp;<span class="facetoption-result-count">({field:numberOfResults})</span>
-							}
+				audience_stringM {
+					label = Sexe
+					field = audience_stringM
+					operator = OR
 
+					keepAllOptionsOnSelection = 1
+					selectingSelectedFacetOptionRemovesFilter = 1
+				}
+				agerange_stringM {
+					label = Tranche d'âge
+					field = agerange_stringM
+					operator = OR
 
-							CUR = 1
-							CUR < .NO
-							CUR.wrapItemAndSub = <li class="current">|</li>
-
-							ACT = 1
-							ACT < .NO
-							ACT.wrapItemAndSub = <li class="active">|</li>
-						}
-
-						2 < .1
-						2.wrap = <ul>|</ul>
-
-						3 < .2
-					}
+					keepAllOptionsOnSelection = 1
+					selectingSelectedFacetOptionRemovesFilter = 1
 				}
 			}
 
