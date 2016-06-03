@@ -61,9 +61,9 @@ wgetresource ()
 
 	if [ $BRANCH_TEST_RETURN -eq "0" ]
 	then
-		RESOURCE="https://raw.githubusercontent.com/TYPO3-Solr/ext-solr/$GITBRANCH_PATH/Resources/"$1
+		RESOURCE="https://raw.githubusercontent.com/mbody/typo3-solr/$GITBRANCH_PATH/Resources/"$1
 	else
-		RESOURCE="https://raw.githubusercontent.com/TYPO3-Solr/ext-solr/master/Resources/"$1
+		RESOURCE="https://raw.githubusercontent.com/mbody/typo3-solr/master/Resources/"$1
 	fi
 
 	if [ "$2" ]
@@ -152,7 +152,7 @@ then
 fi
 
 # test if release branch exists, if so we'll download from there
-wget --no-check-certificate -q --spider https://raw.githubusercontent.com/TYPO3-Solr/ext-solr/$GITBRANCH_PATH/Resources/Solr/solr.xml
+wget --no-check-certificate -q --spider https://raw.githubusercontent.com/mbody/typo3-solr/$GITBRANCH_PATH/Resources/Solr/solr.xml
 BRANCH_TEST_RETURN=$?
 
 java -version > /dev/null 2>&1
