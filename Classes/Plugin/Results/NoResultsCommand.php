@@ -85,13 +85,16 @@ class NoResultsCommand implements PluginCommand
         $spellChecker = GeneralUtility::makeInstance('ApacheSolrForTypo3\\Solr\\SpellChecker');
         $searchWord = $this->parentPlugin->getCleanUserQuery();
 
-        if($searchWord != "") {
+        // MB : modified so that it doesn't display result not found on initial access.
+        if($searchWord != "" ) {
             $nothingFound = strtr(
                 $this->parentPlugin->pi_getLL('no_results_nothing_found'),
                 array(
                     '@searchWord' => $searchWord
                 )
             );
+        } else if ($this->getFilterQueryIsNotNull()) {
+            $nothingFound = $this->parentPlugin->pi_getLL('no_results_nothing_found_without_searchword');
         } else {
             $nothingFound = "";
         }
@@ -161,4 +164,16 @@ class NoResultsCommand implements PluginCommand
 
         return $suggestionResults;
     }
+
+    /**
+     * This method returns true when no filter is present at all.
+     *
+     * @return boolean
+     */
+    protected function getFilterQueryIsNotNull()
+    {
+        $resultParameters = GeneralUtility::_GET('tx_solr');
+        return is_array($resultParameters['filter']);
+    }
+
 }

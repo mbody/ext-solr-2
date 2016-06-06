@@ -117,6 +117,7 @@
 			<label index="results_found">@resultsTotal résultats ont été trouvés en @resultsTime millisecondes.</label>
 			<label index="results_searched_for">Recherche de "@searchWord".</label>
 			<label index="no_results_nothing_found">Rien trouvé pour "@searchWord".</label>
+			<label index="no_results_nothing_found_without_searchword">Rien trouvé pour cette recherche.</label>
 			<label index="no_results_showing_results_suggestion">Affichage des résultats pour "@suggestedWord"</label>
 			<label index="no_results_search_for_original">Chercher "@searchWord" à la place.</label>
 			<label index="lastSearches">Dernières recherches</label>
