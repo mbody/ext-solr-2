@@ -15,17 +15,17 @@ plugin.tx_solr {
 
 	enabled = 1
 
-	enableDebugMode = 1
+	enableDebugMode = 0
 
 	general {
-		dateFormat.date = d.m.Y H:i
+		dateFormat.date = d/m/Y - H:i
 	}
 
 	solr {
 		scheme = {$plugin.tx_solr.solr.scheme}
 		host   = {$plugin.tx_solr.solr.host}
 		port   = {$plugin.tx_solr.solr.port}
-		path   = {$plugin.tx_solr.solr.path}
+		path   = /solr/core_fr/
 	}
 
 	templateFiles {
@@ -74,7 +74,7 @@ plugin.tx_solr {
 			created = timestampToIsoDate
 			endtime = timestampToUtcIsoDate
 			rootline = pageUidToHierarchy
-			category_stringM = categoryUidToHierarchy
+			category_tags = categoryUidToHierarchy
 		}
 
 		queue {
@@ -100,26 +100,61 @@ plugin.tx_solr {
 
 				fields {
 					sortSubTitle_stringS = subtitle
-					mainThemaTags_stringS = mainThemaTags
+
 					univers_stringS = tx_mmmieux_universe
-					audience_stringM = SOLR_RELATION
-					audience_stringM {
+					audience_tags = SOLR_RELATION
+					audience_tags {
 						localField = tx_mmmieux_audience_tags
 						multiValue = 1
 					}
-					audience_stringM = SOLR_RELATION
-					audience_stringM {
-						localField = tx_mmmieux_audience_tags
-						multiValue = 1
-					}
-					agerange_stringM = SOLR_RELATION
-					agerange_stringM {
+					agerange_tags = SOLR_RELATION
+					agerange_tags {
 						localField = tx_mmmieux_agerange_tags
 						multiValue = 1
 					}
-					place_stringM = SOLR_RELATION
-					place_stringM {
+					place_tags = SOLR_RELATION
+					place_tags {
 						localField = tx_mmmieux_place_tags
+						multiValue = 1
+					}
+					label_tags = SOLR_RELATION
+					label_tags {
+						localField = tx_mmmieux_label_tags
+						multiValue = 1
+					}
+					rubric_tags = SOLR_RELATION
+					rubric_tags {
+						localField = tx_mmmieux_rubric_tags
+						multiValue = 1
+					}
+					news_tags = SOLR_RELATION
+					news_tags {
+						localField = tx_mmmieux_news_tags
+						multiValue = 1
+					}
+					format_tags = SOLR_RELATION
+					format_tags {
+						localField = tx_mmmieux_format_tags
+						multiValue = 1
+					}
+					mediatype_tags = SOLR_RELATION
+					mediatype_tags {
+						localField = tx_mmmieux_mediatype_tags
+						multiValue = 1
+					}
+					mainthema_tags = SOLR_RELATION
+					mainthema_tags {
+						localField = tx_mmmieux_mainthema_tags
+						multiValue = 1
+					}
+					complementarythema_tags = SOLR_RELATION
+					complementarythema_tags {
+						localField = tx_mmmieux_complementarythema_tags
+						multiValue = 1
+					}
+					folderarticle_tags = SOLR_RELATION
+					folderarticle_tags {
+						localField = tx_mmmieux_folderarticle_tags
 						multiValue = 1
 					}
 				}
@@ -150,7 +185,7 @@ plugin.tx_solr {
 
 			// qf parameter http://wiki.apache.org/solr/DisMaxQParserPlugin#qf_.28Query_Fields.29
 			//queryFields = content^40.0, title^5.0, keywords^2.0, tagsH1^5.0, tagsH2H3^3.0, tagsH4H5H6^2.0, tagsInline^1.0
-			queryFields = content^40.0, title^5.0, abstract^4.0, tagsH1^3.9, tagsH2H3^3.9, tagsH4H5H6^3.9, tagsInline^3.9, description^3.0
+			queryFields = title^5.0, abstract^4.0, mmmieux_tags^3.9, tagsH1^3.9, tagsH2H3^3.9, tagsH4H5H6^3.9, tagsInline^3.9, content^3.0
 
 			// fl parameter http://wiki.apache.org/solr/CommonQueryParameters#fl
 			returnFields = *, score
@@ -346,9 +381,9 @@ plugin.tx_solr {
                                             pages.value = Pages
                     }
 				}
-				univers_stringS {
+				univers_tags {
 					label = Univers
-					field = univers_stringS
+					field = univers_tags
 					operator = OR
 					keepAllOptionsOnSelection = 1
 					selectingSelectedFacetOptionRemovesFilter = 1
@@ -376,17 +411,33 @@ plugin.tx_solr {
                                             rubric5.value = Ma santé pratique
                     }
 				}
-				audience_stringM {
+				audience_tags {
 					label = Sexe
-					field = audience_stringM
+					field = audience_tags
 					operator = OR
 
 					keepAllOptionsOnSelection = 1
 					selectingSelectedFacetOptionRemovesFilter = 1
 				}
-				agerange_stringM {
+				agerange_tags {
 					label = Tranche d'âge
-					field = agerange_stringM
+					field = agerange_tags
+					operator = OR
+
+					keepAllOptionsOnSelection = 1
+					selectingSelectedFacetOptionRemovesFilter = 1
+				}
+				mediatype_tags {
+					label = Type de Média
+					field = mediatype_tags
+					operator = OR
+
+					keepAllOptionsOnSelection = 1
+					selectingSelectedFacetOptionRemovesFilter = 1
+				}
+				format_tags {
+					label = Format
+					field = format_tags
 					operator = OR
 
 					keepAllOptionsOnSelection = 1
@@ -442,12 +493,12 @@ plugin.tx_solr {
 		exceptions = 1
 
 		indexing {
-			indexQueueInitialization = 1
-			missingTypo3SearchMarkers = 1
-			pageIndexed = 1
+			indexQueueInitialization = 0
+			missingTypo3SearchMarkers = 0
+			pageIndexed = 0
 
 			queue {
-				pages = 1
+				pages = 0
 			}
 		}
 

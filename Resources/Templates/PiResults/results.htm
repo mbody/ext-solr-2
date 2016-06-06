@@ -111,13 +111,16 @@
 				<a href="###RESULT_DOCUMENT.URL###">###RESULT_DOCUMENT.TITLE###</a>
 			</span></h2>
 
-
+			<!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
 			<p>
 				<i><b>Rubrique : </b></i>###LLL:###RESULT_DOCUMENT.univers_stringS######
 			</p>
+			<!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
+			<!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### begin -->
 			<p>
 				<i><b>Résumé : </b></i>###RESULT_DOCUMENT.ABSTRACT###
 			</p>
+			<!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### end -->
 
 			<p class="tx-indexedsearch-descr descr">
 				<i><b>Extraits avec highlights : </b></i>###CROP:###RESULT_DOCUMENT.CONTENT###|500###

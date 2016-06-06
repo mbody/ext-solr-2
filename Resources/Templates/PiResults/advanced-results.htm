@@ -11,8 +11,6 @@
 
 <div id="tx-solr-search">
 
-	***** recherche avancée ****
-
 	<!-- ###SOLR_SEARCH_FORM### begin -->
 	<div>
 
@@ -25,14 +23,6 @@
 			<div>
 				<h2 class="title-level-3 pad-bottom-25">Recherche avancée</h2>
 				<p>Choisissez un ou plusieurs critères pour filtrer les contenus du site :</p>
-					<div>
-						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@extension]" value="Mmmieux">
-						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@vendor]" value="Efficience">
-						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@controller]" value="ProfiledSearch">
-						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][@action]" value="form">
-						<input type="hidden" name="tx_mmmieux_profiledsearch[__referrer][arguments]" value="YTowOnt9054d8480693d2038bad37c7a558ef8a16d4ff44b">
-						<input type="hidden" name="tx_mmmieux_profiledsearch[__trustedProperties]" value="a:5:{s:8:&quot;audience&quot;;i:1;s:8:&quot;ageRange&quot;;i:1;s:9:&quot;mainThema&quot;;i:1;s:5:&quot;place&quot;;i:1;s:10:&quot;searchAuto&quot;;i:1;}3aacf62168ae7bc6323dcb5c10f60989922bf488">
-					</div>
 
 				<div class="form-group" style="display:block">
 					<label id="tx-mmmieux-profiledsearch-label-univers">Rubrique</label>
@@ -74,9 +64,9 @@
 
 
 
-						<select id="select_audience_stringM" name="tx_solr[filter][]" tabindex="-1" title=""><option value="0">Choisissez</option>
-							<option value="audience_stringM:Femme">Femme</option>
-							<option value="audience_stringM:Homme">Homme</option>
+						<select id="select_audience_tags" name="tx_solr[filter][]" tabindex="-1" title=""><option value="0">Choisissez</option>
+							<option value="audience_tags:Femme">Femme</option>
+							<option value="audience_tags:Homme">Homme</option>
 						</select>
 
 						</div>
@@ -87,14 +77,14 @@
 
 
 
-						<select id="select_agerange_stringM" name="tx_solr[filter][]" >
+						<select id="select_agerange_tags" name="tx_solr[filter][]" >
 							<option value="0">Choisissez</option>
-							<option id="agerange_stringM:Enfant" value="agerange_stringM:Enfant">Enfant</option>
-							<option id="agerange_stringM:Adolescent" value="agerange_stringM:Adolescent">Adolescent</option>
-							<option id="agerange_stringM:Senior" value="agerange_stringM:Senior">Senior</option>
-							<option id="agerange_stringM:Jeune" value="agerange_stringM:Jeune">Jeune</option>
-							<option id="agerange_stringM:Adulte" value="agerange_stringM:Adulte">Adulte</option>
-							<option id="agerange_stringM:Bébé" value="agerange_stringM:Bébé">Bébé</option>
+							<option id="agerange_tags:Enfant" value="agerange_tags:Enfant">Enfant</option>
+							<option id="agerange_tags:Adolescent" value="agerange_tags:Adolescent">Adolescent</option>
+							<option id="agerange_tags:Senior" value="agerange_tags:Senior">Senior</option>
+							<option id="agerange_tags:Jeune" value="agerange_tags:Jeune">Jeune</option>
+							<option id="agerange_tags:Adulte" value="agerange_tags:Adulte">Adulte</option>
+							<option id="agerange_tags:Bébé" value="agerange_tags:Bébé">Bébé</option>
 						</select>
 
 						</div>
@@ -122,8 +112,8 @@
 	<script>
 		<!-- ###USED_FACETS### begin -->
 				<!-- ###LOOP:FACETS_IN_USE### begin -->
-
 				<!-- ###LOOP_CONTENT### -->
+
 				$('#option-###REMOVE_FACET.value###').attr('checked', 'checked');
 				$('#select_###REMOVE_FACET.facet_name###').val('###REMOVE_FACET.facet_name###:###REMOVE_FACET.value###');
 				<!-- ###LOOP_CONTENT### -->
@@ -202,12 +192,17 @@
 			</span></h2>
 
 
+
+			<!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
 			<p>
 				<i><b>Rubrique : </b></i>###LLL:###RESULT_DOCUMENT.univers_stringS######
 			</p>
+			<!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
+			<!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### begin -->
 			<p>
 				<i><b>Résumé : </b></i>###RESULT_DOCUMENT.ABSTRACT###
 			</p>
+			<!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### end -->
 
 			<p class="tx-indexedsearch-descr descr">
 				<i><b>Extraits avec highlights : </b></i>###CROP:###RESULT_DOCUMENT.CONTENT###|500###
