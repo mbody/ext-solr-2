@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Template for the search results view for EXT:solr</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Template for the search results view for EXT:solr</title>
 </head>
 <body>
 
@@ -11,297 +12,310 @@
 
 <div id="tx-solr-search">
 
-	<!-- ###SOLR_SEARCH_FORM### begin -->
-	<div>
+    <!-- ###SOLR_SEARCH_FORM### begin -->
+    <div>
 
-		###FORM.SUGGEST_URL###
-		<form id="tx-solr-search-form-pi-results" action="###FORM.ACTION###" method="get" accept-charset="###FORM.ACCEPT-CHARSET###" class="form-inline">
+        ###FORM.SUGGEST_URL###
+        <form id="tx-solr-search-form-pi-results" action="###FORM.ACTION###" method="get"
+              accept-charset="###FORM.ACCEPT-CHARSET###" class="form-inline">
 
-			<input type="hidden" name="id" value="###FORM.ACTION_ID###" />
-			<input type="hidden" name="###FORM.ACTION_LANGUAGE_PARAMETER###" value="###FORM.ACTION_LANGUAGE###" />
+            <input type="hidden" name="id" value="###FORM.ACTION_ID###"/>
+            <input type="hidden" name="###FORM.ACTION_LANGUAGE_PARAMETER###" value="###FORM.ACTION_LANGUAGE###"/>
 
-			<div>
-				<h2 class="title-level-3 pad-bottom-25">Recherche avancée</h2>
-				<p>Choisissez un ou plusieurs critères pour filtrer les contenus du site :</p>
+            <div>
+                <h2 class="title-level-3 pad-bottom-25">Recherche avancée</h2>
 
-				<div class="form-group" style="display:block">
-					<label id="tx-mmmieux-profiledsearch-label-univers">Rubrique</label>
-					<div>
-						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric1"
-							   value="univers_stringS:rubric1"
-								/>
-						<label for="option-rubric1">Le Mag</label>
-					</div>
-					<div>
-						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric2"
-							   value="univers_stringS:rubric2"
-								/>
-						<label for="option-rubric2">Mieux dans mon corps</label>
-					</div>
-					<div>
-						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric3"
-							   value="univers_stringS:rubric3"
-								/>
-						<label for="option-rubric3">Mieux dans ma tête</label>
-					</div>
-					<div>
-						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric4"
-							   value="univers_stringS:rubric4"
-								/>
-						<label for="option-rubric4">Mieux dans ma vie</label>
-					</div>
-					<div>
-						<input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric5"
-							   value="univers_stringS:rubric5"
-								/>
-						<label for="option-rubric5">Ma santé pratique</label>
-					</div>
-				</div>
+                <p>Choisissez un ou plusieurs critères pour filtrer les contenus du site :</p>
 
-				<div class="form-group">
-						<label id="tx-mmmieux-profiledsearch-label-audience">Sexe</label>
-						<div class="form-control-container">
+                <div class="form-group" style="display:block">
+                    <label id="tx-mmmieux-profiledsearch-label-univers">Rubrique</label>
 
+                    <div>
+                        <input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric1"
+                               value="univers_stringS:rubric1"
+                                />
+                        <label for="option-rubric1">Le Mag</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric2"
+                               value="univers_stringS:rubric2"
+                                />
+                        <label for="option-rubric2">Mieux dans mon corps</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric3"
+                               value="univers_stringS:rubric3"
+                                />
+                        <label for="option-rubric3">Mieux dans ma tête</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric4"
+                               value="univers_stringS:rubric4"
+                                />
+                        <label for="option-rubric4">Mieux dans ma vie</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="tx_solr[filter][]" class="facet-item" id="option-rubric5"
+                               value="univers_stringS:rubric5"
+                                />
+                        <label for="option-rubric5">Ma santé pratique</label>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <label id="tx-mmmieux-profiledsearch-label-audience">Format</label>
 
-						<select id="select_audience_tags" name="tx_solr[filter][]" tabindex="-1" title=""><option value="0">Choisissez</option>
-							<option value="audience_tags:Femme">Femme</option>
-							<option value="audience_tags:Homme">Homme</option>
-						</select>
-
-						</div>
-					</div>
-					<div class="form-group">
-						<label id="tx-mmmieux-profiledsearch-label-agerange">Tranche d'âge</label>
-						<div class="form-control-container">
+                    <div class="form-control-container">
 
 
+                        <select id="select_format_tags" name="tx_solr[filter][]" tabindex="-1" title="">
+                            <option value="0">Choisissez</option>
+                            <option id="format_tags:Article" value="format_tags:Article" >Article</option>
+                            <option id="format_tags:Témoignage" value="format_tags:Témoignage" >Témoignage</option>
+                            <option id="format_tags:Débat" value="format_tags:Débat" >Débat</option>
+                            <option id="format_tags:Edito" value="format_tags:Edito" >Edito</option>
+                            <option id="format_tags:Sélection" value="format_tags:Sélection" >Sélection</option>
+                            <option id="format_tags:Digest" value="format_tags:Digest" >Digest</option>
+                            <option id="format_tags:Interview" value="format_tags:Interview" >Interview</option>
+                            <option id="format_tags:Dossiers" value="format_tags:Dossiers" >Dossiers</option>
+                            <option id="format_tags:Illustration" value="format_tags:Illustration" >Illustration</option>
+                        </select>
 
-						<select id="select_agerange_tags" name="tx_solr[filter][]" >
-							<option value="0">Choisissez</option>
-							<option id="agerange_tags:Enfant" value="agerange_tags:Enfant">Enfant</option>
-							<option id="agerange_tags:Adolescent" value="agerange_tags:Adolescent">Adolescent</option>
-							<option id="agerange_tags:Senior" value="agerange_tags:Senior">Senior</option>
-							<option id="agerange_tags:Jeune" value="agerange_tags:Jeune">Jeune</option>
-							<option id="agerange_tags:Adulte" value="agerange_tags:Adulte">Adulte</option>
-							<option id="agerange_tags:Bébé" value="agerange_tags:Bébé">Bébé</option>
-						</select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="tx-mmmieux-profiledsearch-label-agerange">Type de Média</label>
 
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="mar-bottom-15">
-				<div class="form-group">
-					<input type="text" class="form-control input-lg tx-solr-q ui-autocomplete-input" placeholder="Mots-clés" title="Indiquez les termes à rechercher" name="q" value="###FORM.Q###" />
-				</div>
-				<div class="form-group">
-					<button type="reset" class="btn btn-secondary">Réinitialiser</button>
-					<button type="submit" name="tx_indexedsearch[submit_button]" id="tx-indexedsearch-searchbox-button-submit" class="btn btn-default">###LLL:submit###</button>
-				</div>
-			</div>
-
-			###FORM.HIDDEN_PARAMETER_FIELDS###
-		</form>
-		###FORM.DEBUG_QUERY###
-	</div>
-	<!-- ###SOLR_SEARCH_FORM### end -->
+                    <div class="form-control-container">
 
 
-	<!-- ###SOLR_SEARCH_FACETING### begin -->
-	<script>
-		<!-- ###USED_FACETS### begin -->
-				<!-- ###LOOP:FACETS_IN_USE### begin -->
-				<!-- ###LOOP_CONTENT### -->
+                        <select id="select_mediatype_tags" name="tx_solr[filter][]">
+                            <option value="0" >Choisissez</option>
+                            <option id="mediatype_tags:Vidéo" value="mediatype_tags:Vidéo" >Vidéo</option>
+                            <option id="mediatype_tags:Photo" value="mediatype_tags:Photo" >Photo</option>
+                            <option id="mediatype_tags:Tweet" value="mediatype_tags:Tweet" >Tweet</option>
+                            <option id="mediatype_tags:Diaporama" value="mediatype_tags:Diaporama" >Diaporama</option>
+                            <option id="mediatype_tags:Infographie" value="mediatype_tags:Infographie" >Infographie</option>
+                            <option id="mediatype_tags:Audio" value="mediatype_tags:Audio" >Audio</option>
+                            <option id="mediatype_tags:Animation" value="mediatype_tags:Animation" >Animation</option>
+                            <option id="mediatype_tags:Carte" value="mediatype_tags:Carte" >Carte</option>
+                        </select>
 
-				$('#option-###REMOVE_FACET.value###').attr('checked', 'checked');
-				$('#select_###REMOVE_FACET.facet_name###').val('###REMOVE_FACET.facet_name###:###REMOVE_FACET.value###');
-				<!-- ###LOOP_CONTENT### -->
-				<!-- ###LOOP:FACETS_IN_USE### end -->
-		<!-- ###USED_FACETS### end -->
-	</script>
-	<!-- ###SOLR_SEARCH_FACETING### end -->
-
-
-	<!-- ###SOLR_SEARCH_ERRORS### begin -->
-
-	<div class="tx-solr-search-form-errors">
-		###LLL:error_errors###
-		<!-- ###LOOP:ERRORS### begin -->
-		<ul class="tx-solr-search-form-error-list">
-		<!-- ###LOOP_CONTENT### -->
-			<li>
-			###ERROR.MESSAGE###
-			</li>
-		<!-- ###LOOP_CONTENT### -->
-		</ul>
-		<!-- ###LOOP:ERRORS### end -->
-	</div>
-
-	<!-- ###SOLR_SEARCH_ERRORS### end -->
-
-
-
-	<!-- ###SOLR_SEARCH_RESULTS### begin -->
-
-	###RESULTS.SEARCHED_FOR###
-	###RESULTS.FOUND###
-	###RESULTS.RANGE###
-
-	<div id="tx-solr-pagination">
-		<!-- ###SOLR_SEARCH_RESULTSPERPAGESWITCH### begin -->
-		<div id="tx-solr-pagination-results-per-page">
-		<form action="###FORM.ACTION###" method="post">
-			###LLL:results_per_page###<select onchange="this.form.submit()" name="###TX_SOLR.PREFIX###[resultsPerPage]">
-				<!-- ###LOOP:OPTIONS### begin -->
-				<!-- ###LOOP_CONTENT### -->
-				<option value="###OPTION.VALUE###" ###OPTION.SELECTED###>###OPTION.VALUE###</option>
-				<!-- ###LOOP_CONTENT### -->
-				<!-- ###LOOP:OPTIONS### end -->
-			</select>
-		</form>
-		</div>
-		<!-- ###SOLR_SEARCH_RESULTSPERPAGESWITCH### end -->
-
-		###RESULTS.PAGEBROWSER###
-	</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mar-bottom-15">
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg tx-solr-q ui-autocomplete-input"
+                           placeholder="Mots-clés"
+                           title="Indiquez les termes à rechercher" name="q" value="###FORM.Q###"/>
+                </div>
+                <div class="form-group">
+                    <button type="reset" class="btn btn-secondary">Réinitialiser</button>
+                    <button type="submit" name="tx_indexedsearch[submit_button]"
+                            id="tx-indexedsearch-searchbox-button-submit"
+                            class="btn btn-default">###LLL:submit###
+                    </button>
+                </div>
+            </div>
+            ###FORM.HIDDEN_PARAMETER_FIELDS###
+        </form>
+        ###FORM.DEBUG_QUERY###
+    </div>
+    <!-- ###SOLR_SEARCH_FORM### end -->
 
 
+    <!-- ###SOLR_SEARCH_FACETING### begin -->
+    <script>
+        <!-- ###USED_FACETS### begin -->
+        <!-- ###LOOP:FACETS_IN_USE### begin -->
+        <!-- ###LOOP_CONTENT### -->
 
-	<div class="tx-indexedsearch-res">
-		<!-- ###LOOP:RESULT_DOCUMENTS### begin -->
-		<!-- ###LOOP_CONTENT### -->
-		<div class="res">
-			<!--
+        $('#option-###REMOVE_FACET.value###').attr('checked', 'checked');
+        $('#select_###REMOVE_FACET.facet_name###').val('###REMOVE_FACET.facet_name###:###REMOVE_FACET.value###');
+        <!-- ###LOOP_CONTENT### -->
+        <!-- ###LOOP:FACETS_IN_USE### end -->
+        <!-- ###USED_FACETS### end -->
+    </script>
+    <!-- ###SOLR_SEARCH_FACETING### end -->
+
+    <!-- ###SOLR_SEARCH_ERRORS### begin -->
+
+    <div class="tx-solr-search-form-errors">
+        ###LLL:error_errors###
+        <!-- ###LOOP:ERRORS### begin -->
+        <ul class="tx-solr-search-form-error-list">
+            <!-- ###LOOP_CONTENT### -->
+            <li>
+                ###ERROR.MESSAGE###
+            </li>
+            <!-- ###LOOP_CONTENT### -->
+        </ul>
+        <!-- ###LOOP:ERRORS### end -->
+    </div>
+
+    <!-- ###SOLR_SEARCH_ERRORS### end -->
+
+
+    <!-- ###SOLR_SEARCH_RESULTS### begin -->
+
+    ###RESULTS.SEARCHED_FOR###
+    ###RESULTS.FOUND###
+    ###RESULTS.RANGE###
+
+    <div id="tx-solr-pagination">
+        <!-- ###SOLR_SEARCH_RESULTSPERPAGESWITCH### begin -->
+        <div id="tx-solr-pagination-results-per-page">
+            <form action="###FORM.ACTION###" method="post">
+                ###LLL:results_per_page###<select onchange="this.form.submit()"
+                                                  name="###TX_SOLR.PREFIX###[resultsPerPage]">
+                <!-- ###LOOP:OPTIONS### begin -->
+                <!-- ###LOOP_CONTENT### -->
+                <option value="###OPTION.VALUE###" ###OPTION.SELECTED###>###OPTION.VALUE###</option>
+                <!-- ###LOOP_CONTENT### -->
+                <!-- ###LOOP:OPTIONS### end -->
+            </select>
+            </form>
+        </div>
+        <!-- ###SOLR_SEARCH_RESULTSPERPAGESWITCH### end -->
+
+        ###RESULTS.PAGEBROWSER###
+    </div>
+
+
+    <div class="tx-indexedsearch-res">
+        <!-- ###LOOP:RESULT_DOCUMENTS### begin -->
+        <!-- ###LOOP_CONTENT### -->
+        <div class="res">
+            <!--
                         Score: ###RESULT_DOCUMENT.SCORE###
                         Document ID:  ###RESULT_DOCUMENT.ID###
                         -->
-			<span class="date">Modifié le ###DATE:###RESULT_DOCUMENT.changed######</span>
-			<!-- ###IF:###RESULT_DOCUMENT.isElevated###|==|1|label### begin -->
-			<div class="results-elevated-label">###LLL:sponsored###</div>
-			<!-- ###IF:###RESULT_DOCUMENT.isElevated###|==|1|label### end -->
+            <span class="date">Modifié le ###DATE:###RESULT_DOCUMENT.changed######</span>
+            <!-- ###IF:###RESULT_DOCUMENT.isElevated###|==|1|label### begin -->
+            <div class="results-elevated-label">###LLL:sponsored###</div>
+            <!-- ###IF:###RESULT_DOCUMENT.isElevated###|==|1|label### end -->
 
-			<div class="relevance">
-				<div class="relevance-label">###LLL:relevance###:</div>
-				<div class="relevance-bar">###RELEVANCE_BAR:###RESULT_DOCUMENT######</div>
-				<div class="relevance-percent">###RELEVANCE:###RESULT_DOCUMENT######%</div>
-			</div>
+            <div class="relevance">
+                <div class="relevance-label">###LLL:relevance###:</div>
+                <div class="relevance-bar">###RELEVANCE_BAR:###RESULT_DOCUMENT######</div>
+                <div class="relevance-percent">###RELEVANCE:###RESULT_DOCUMENT######%</div>
+            </div>
 
-			<h2><span class="tx-indexedsearch-title title">
+            <h2><span class="tx-indexedsearch-title title">
 				<a href="###RESULT_DOCUMENT.URL###">###RESULT_DOCUMENT.TITLE###</a>
 			</span></h2>
 
 
+            <!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
+            <p>
+                <i><b>Rubrique : </b></i>###LLL:###RESULT_DOCUMENT.univers_stringS######
+            </p>
+            <!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
+            <!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### begin -->
+            <p>
+                <i><b>Résumé : </b></i>###RESULT_DOCUMENT.ABSTRACT###
+            </p>
+            <!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### end -->
 
-			<!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
-			<p>
-				<i><b>Rubrique : </b></i>###LLL:###RESULT_DOCUMENT.univers_stringS######
-			</p>
-			<!-- ###IF:aaa###RESULT_DOCUMENT.univers_stringS###|!=|aaa### begin -->
-			<!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### begin -->
-			<p>
-				<i><b>Résumé : </b></i>###RESULT_DOCUMENT.ABSTRACT###
-			</p>
-			<!-- ###IF:aaa###RESULT_DOCUMENT.ABSTRACT###|!=|aaa### end -->
+            <p class="tx-indexedsearch-descr descr">
+                <i><b>Extraits avec highlights : </b></i>###CROP:###RESULT_DOCUMENT.CONTENT###|500###
+            </p>
 
-			<p class="tx-indexedsearch-descr descr">
-				<i><b>Extraits avec highlights : </b></i>###CROP:###RESULT_DOCUMENT.CONTENT###|500###
-			</p>
+            ###RESULT_DOCUMENT.SCORE_ANALYSIS###
 
-			###RESULT_DOCUMENT.SCORE_ANALYSIS###
+            <!-- ###IF:###RESULT_DOCUMENT.TYPE###|==|tx_solr_file### begin -->
+            <p>
+                ###LLL:file_mimetype###: ###RESULT_DOCUMENT.fileMimeType###<br/>
+                ###LLL:file_referenced###:
+                ###LINK:###RESULT_DOCUMENT.fileReferenceTitle###|###RESULT_DOCUMENT.fileReferenceUrl######
+            </p>
+            <!-- ###IF:###RESULT_DOCUMENT.TYPE###|==|tx_solr_file### end -->
+        </div>
+        <!-- ###LOOP_CONTENT### -->
+        <!-- ###LOOP:RESULT_DOCUMENTS### end -->
 
-			<!-- ###IF:###RESULT_DOCUMENT.TYPE###|==|tx_solr_file### begin -->
-			<p>
-				###LLL:file_mimetype###: ###RESULT_DOCUMENT.fileMimeType###<br />
-				###LLL:file_referenced###: ###LINK:###RESULT_DOCUMENT.fileReferenceTitle###|###RESULT_DOCUMENT.fileReferenceUrl######
-			</p>
-			<!-- ###IF:###RESULT_DOCUMENT.TYPE###|==|tx_solr_file### end -->
-		</div>
-		<!-- ###LOOP_CONTENT### -->
-		<!-- ###LOOP:RESULT_DOCUMENTS### end -->
+    </div>
 
-	</div>
+    ###RESULTS.PAGEBROWSER###
 
-	###RESULTS.PAGEBROWSER###
-
-	<!-- ###SOLR_SEARCH_RESULTS### end -->
+    <!-- ###SOLR_SEARCH_RESULTS### end -->
 
 
-
-	<!-- ###SOLR_SEARCH_NO_RESULTS### begin -->
-	<div class="tx-solr-search-no-results">
-		###NO_RESULTS.NOTHING_FOUND###
-		###NO_RESULTS.SUGGESTION###
-	</div>
-	<!-- ###SOLR_SEARCH_NO_RESULTS### end -->
+    <!-- ###SOLR_SEARCH_NO_RESULTS### begin -->
+    <div class="tx-solr-search-no-results">
+        ###NO_RESULTS.NOTHING_FOUND###
+        ###NO_RESULTS.SUGGESTION###
+    </div>
+    <!-- ###SOLR_SEARCH_NO_RESULTS### end -->
 </div>
 
 <div id="tx-solr-search-functions">
 
-	<!-- ###SOLR_SEARCH_SORTING### begin -->
-	<div id="tx-solr-sorting" class="secondaryContentSection">
-		<div class="csc-header">
-			<h3 class="csc-firstHeader">###LLL:sorting_sortBy###</h3>
-		</div>
-		<ul>
-			<!-- ###LOOP:SORT### begin -->
-			<!-- ###LOOP_CONTENT### -->
-			<li>
-				###SORT_INDICATOR:###SORT.CURRENT_DIRECTION###### ###SORT.LINK###
-			</li>
-			<!-- ###LOOP_CONTENT### -->
-			<!-- ###LOOP:SORT### end -->
-		</ul>
-	</div>
+    <!-- ###SOLR_SEARCH_SORTING### begin -->
+    <div id="tx-solr-sorting" class="secondaryContentSection">
+        <div class="csc-header">
+            <h3 class="csc-firstHeader">###LLL:sorting_sortBy###</h3>
+        </div>
+        <ul>
+            <!-- ###LOOP:SORT### begin -->
+            <!-- ###LOOP_CONTENT### -->
+            <li>
+                ###SORT_INDICATOR:###SORT.CURRENT_DIRECTION###### ###SORT.LINK###
+            </li>
+            <!-- ###LOOP_CONTENT### -->
+            <!-- ###LOOP:SORT### end -->
+        </ul>
+    </div>
 
-	<!-- ###SOLR_SEARCH_SORTING### end -->
+    <!-- ###SOLR_SEARCH_SORTING### end -->
 
 
+    <!-- ###SOLR_SEARCH_LASTSEARCHES### end -->
+    <div id="tx-solr-lastsearches" class="secondaryContentSection">
+        <div class="csc-header">
+            <h3 class="csc-firstHeader">###LLL:lastSearches###</h3>
+        </div>
+        <ul>
+            <!-- ###LOOP:LASTSEARCHES### begin -->
+            <!-- ###LOOP_CONTENT### -->
+            <li>
+                ###LINK:###LASTSEARCH.Q###|###LASTSEARCH.PID###|###LASTSEARCH.PARAMETERS###|0|rel="nofollow"###
+            </li>
+            <!-- ###LOOP_CONTENT### -->
+            <!-- ###LOOP:LASTSEARCHES### end -->
+        </ul>
+    </div>
+    <!-- ###SOLR_SEARCH_LASTSEARCHES### end -->
 
-	<!-- ###SOLR_SEARCH_LASTSEARCHES### end -->
-	<div id="tx-solr-lastsearches" class="secondaryContentSection">
-		<div class="csc-header">
-			<h3 class="csc-firstHeader">###LLL:lastSearches###</h3>
-		</div>
-		<ul>
-			<!-- ###LOOP:LASTSEARCHES### begin -->
-			<!-- ###LOOP_CONTENT### -->
-			<li>
-				###LINK:###LASTSEARCH.Q###|###LASTSEARCH.PID###|###LASTSEARCH.PARAMETERS###|0|rel="nofollow"###
-			</li>
-			<!-- ###LOOP_CONTENT### -->
-			<!-- ###LOOP:LASTSEARCHES### end -->
-		</ul>
-	</div>
-	<!-- ###SOLR_SEARCH_LASTSEARCHES### end -->
-
-	<!-- ###SOLR_SEARCH_FREQUENTSEARCHES### begin -->
-	<div id="tx-solr-frequent-searches" class="secondaryContentSection">
-		<div class="csc-header">
-			<h3 class="csc-firstHeader">###LLL:frequentSearches###</h3>
-		</div>
-		<ul>
-			<!-- ###LOOP:FREQUENTSEARCHES### begin -->
-			<!-- ###LOOP_CONTENT### -->
-			<li class="###TERM.CLASS###">###LINK:###TERM.TERM###|###TERM.PID###|###TERM.PARAMETERS###|0|rel="nofollow"###</li>
-			<!-- ###LOOP_CONTENT### -->
-			<!-- ###LOOP:FREQUENTSEARCHES### end -->
-		</ul>
-	</div>
-	<!-- ###SOLR_SEARCH_FREQUENTSEARCHES### end -->
+    <!-- ###SOLR_SEARCH_FREQUENTSEARCHES### begin -->
+    <div id="tx-solr-frequent-searches" class="secondaryContentSection">
+        <div class="csc-header">
+            <h3 class="csc-firstHeader">###LLL:frequentSearches###</h3>
+        </div>
+        <ul>
+            <!-- ###LOOP:FREQUENTSEARCHES### begin -->
+            <!-- ###LOOP_CONTENT### -->
+            <li class="###TERM.CLASS###">
+                ###LINK:###TERM.TERM###|###TERM.PID###|###TERM.PARAMETERS###|0|rel="nofollow"###
+            </li>
+            <!-- ###LOOP_CONTENT### -->
+            <!-- ###LOOP:FREQUENTSEARCHES### end -->
+        </ul>
+    </div>
+    <!-- ###SOLR_SEARCH_FREQUENTSEARCHES### end -->
 
 </div>
 
 <!-- ###SOLR_SEARCH### end -->
 
 
-
 <!-- ###SOLR_SEARCH_UNAVAILABLE### begin -->
-	###LLL:searchUnavailable###
+###LLL:searchUnavailable###
 <!-- ###SOLR_SEARCH_UNAVAILABLE### end -->
 
 <!-- ###SOLR_SEARCH_ERROR### begin -->
-	###LLL:searchFailed###
+###LLL:searchFailed###
 <!-- ###SOLR_SEARCH_ERROR### end -->
 
 </body>

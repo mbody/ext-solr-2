@@ -411,33 +411,17 @@ plugin.tx_solr {
                                             rubric5.value = Ma santé pratique
                     }
 				}
-				audience_tags {
-					label = Sexe
-					field = audience_tags
-					operator = OR
-
-					keepAllOptionsOnSelection = 1
-					selectingSelectedFacetOptionRemovesFilter = 1
-				}
-				agerange_tags {
-					label = Tranche d'âge
-					field = agerange_tags
+				format_tags {
+					label = Format
+					field = format_tags
 					operator = OR
 
 					keepAllOptionsOnSelection = 1
 					selectingSelectedFacetOptionRemovesFilter = 1
 				}
 				mediatype_tags {
-					label = Type de Média
+					label = Type de medias
 					field = mediatype_tags
-					operator = OR
-
-					keepAllOptionsOnSelection = 1
-					selectingSelectedFacetOptionRemovesFilter = 1
-				}
-				format_tags {
-					label = Format
-					field = format_tags
 					operator = OR
 
 					keepAllOptionsOnSelection = 1
