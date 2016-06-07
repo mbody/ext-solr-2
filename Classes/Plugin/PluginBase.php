@@ -288,7 +288,7 @@ abstract class PluginBase extends AbstractPlugin
      */
     protected function initializeQuery()
     {
-        // bug fix for exact search
+        // bug fix for exact search because typo3 escapes "
         $q = GeneralUtility::_GET('q');
         if(isset($q)){
             $q = stripslashes($q);
