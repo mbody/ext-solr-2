@@ -99,7 +99,7 @@ if ($search->ping()) {
 
     $suggestions = array();
     foreach ($facetSuggestions as $partialKeyword => $value) {
-        $suggestionKey = trim($suggestQuery->getKeywords() . ' ' . $partialKeyword);
+        $suggestionKey = trim($suggestQuery->getKeywordsRaw() . ' ' . $partialKeyword);
         $suggestions[$suggestionKey] = $facetSuggestions[$partialKeyword];
     }
 
