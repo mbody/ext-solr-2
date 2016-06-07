@@ -203,6 +203,13 @@ class Search implements SingletonInterface
             }
         }
 
+        // hook to modify query if exactSearch option is set to true in the request
+        $exactSearch = GeneralUtility::_GET('exactSearch');
+        if(isset($exactSearch)){
+            $queryModifier = GeneralUtility::getUserObj('ApacheSolrForTypo3\\Solr\\Query\\Modifier\\ExactSearchOption');
+            $query = $queryModifier->modifyQuery($query);
+        }
+
         return $query;
     }
 

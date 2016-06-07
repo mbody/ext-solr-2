@@ -381,9 +381,9 @@ plugin.tx_solr {
                                             pages.value = Pages
                     }
 				}
-				univers_tags {
-					label = Univers
-					field = univers_tags
+				univers_stringS {
+					label = Rubrique
+					field = univers_stringS
 					operator = OR
 					keepAllOptionsOnSelection = 1
 					selectingSelectedFacetOptionRemovesFilter = 1
@@ -487,9 +487,9 @@ plugin.tx_solr {
 		}
 
 		query {
-			filters = 0
-			searchWords = 0
-			queryString = 0
+			filters = 1
+			searchWords = 1
+			queryString = 1
 			rawPost = 0
 			rawGet = 0
 			rawDelete = 0
