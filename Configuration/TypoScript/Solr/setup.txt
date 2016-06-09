@@ -25,7 +25,7 @@ plugin.tx_solr {
 		scheme = {$plugin.tx_solr.solr.scheme}
 		host   = {$plugin.tx_solr.solr.host}
 		port   = {$plugin.tx_solr.solr.port}
-		path   = /solr/core_fr/
+		path   = /solr/mmmieux_fr/
 	}
 
 	templateFiles {

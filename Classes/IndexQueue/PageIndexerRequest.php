@@ -157,7 +157,6 @@ class PageIndexerRequest
             )
         ));
 
-        // c'est ici que l'indexation dans solr est réalisée
         $rawResponse = file_get_contents($url, false, $context);
 
         // convert JSON response to response object properties
