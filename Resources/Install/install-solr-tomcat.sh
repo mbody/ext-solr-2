@@ -338,3 +338,15 @@ cecho "Starting Tomcat." $green
 
 cecho "Done." $green
 cecho "Now browse to http://localhost:8080/solr/" $green
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+# Récupération de l'archive de l'extension typo3-solr modifiée
+wget --progress=bar:force https://github.com/mbody/typo3-solr/archive/master.zip
+unzip master.zip
+cd typo3-solr-master
+zip -r solr.zip *
+mv solr.zip ../solr.zip
+cd ..
+rm -rf typo3-solr-master
+rm master.zip
+
